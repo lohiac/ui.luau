@@ -1614,7 +1614,7 @@ if Settings.SidebarWatermarkImage and Settings.SidebarWatermarkImage ~= "" then
 	sidebarWatermark.BackgroundTransparency = 1
 	sidebarWatermark.ImageColor3 = Settings.SidebarWatermarkColor or Settings.WatermarkColor or Color3.fromRGB(238, 143, 154)
 	sidebarWatermark.ImageTransparency = Settings.SidebarWatermarkTransparency or 0.2
-	sidebarWatermark.Size = Settings.SidebarWatermarkSize or UDim2.fromOffset(240, 240)
+	sidebarWatermark.Size = Settings.SidebarWatermarkSize or UDim2.fromOffset(400, 400)
 
 	-- CENTER OF SIDEBAR
 	sidebarWatermark.AnchorPoint = Settings.SidebarWatermarkAnchorPoint or Vector2.new(0.5, 0.5)

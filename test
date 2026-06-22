@@ -225,7 +225,7 @@ function MacLib:AddFloatingLabel(text)
 	corner.Parent = holder
 
 	local stroke = Instance.new("UIStroke")
-	stroke.Color = Color3.fromRGB(255, 255, 255)
+	stroke.Color = Color3.fromRGB(15, 15, 15)
 	stroke.Transparency = 0.9
 	stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 	stroke.Parent = holder
@@ -234,7 +234,7 @@ function MacLib:AddFloatingLabel(text)
 	lbl.BackgroundTransparency = 1
 	lbl.AutomaticSize = Enum.AutomaticSize.XY
 	lbl.Text = text or ""
-	lbl.TextColor3 = Color3.fromRGB(255, 255, 255)
+	lbl.TextColor3 = Color3.fromRGB(15, 15, 15)
 	lbl.TextSize = 14
 	lbl.FontFace = Font.new(assets.interFont, Enum.FontWeight.SemiBold)
 	lbl.RichText = true

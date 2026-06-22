@@ -6814,17 +6814,27 @@ function MacLib:Window(Settings)
 	return WindowFunctions
 end
 
-function MacLib:Demo()
-	local Window = MacLib:Window({
-		Title = "Maclib Demo",
-		Subtitle = "This is a subtitle.",
-		Size = UDim2.fromOffset(868, 650),
-		DragStyle = 1,
-		DisabledWindowControls = {},
-		ShowUserInfo = true,
-		Keybind = Enum.KeyCode.RightControl,
-		AcrylicBlur = true,
-	})
+local Window = MacLib:Window({
+    Title    = '<font color="rgb(110,45,35)">Pork</font> <font color="rgb(75,25,20)">Hub</font>',
+    Subtitle = "Made with love",
+    Image    = PigBody,
+
+    WatermarkImage = PigBody,
+    WatermarkPosition = UDim2.fromScale(0.75, 0.58),
+    WatermarkSize = UDim2.fromOffset(450, 280),
+    WatermarkTransparency = 0.91,
+
+    SidebarWatermarkImage = PigFace,
+    SidebarWatermarkPosition = UDim2.new(0, -60, 1, -300),
+    SidebarWatermarkSize = UDim2.fromOffset(240, 240),
+    SidebarWatermarkTransparency = 0.88,
+
+    Size     = UDim2.fromOffset(980, 760),
+    Keybind  = Enum.KeyCode.F5,
+    ShowUserInfo = true,
+    AcrylicBlur  = false,
+    DragStyle    = 1,
+})
 
 	local globalSettings = {
 		UIBlurToggle = Window:GlobalSetting({

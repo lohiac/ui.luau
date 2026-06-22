@@ -475,7 +475,7 @@ function MacLib:CreateLoading(info)
 	subLbl.AutomaticSize = Enum.AutomaticSize.Y
 	subLbl.Size = UDim2.new(1, 0, 0, 0)
 	subLbl.Text = subtitle
-	subLbl.TextColor3 = Color3.fromRGB(255, 255, 255)
+	subLbl.TextColor3 = Color3.fromRGB(15, 15, 15)
 	subLbl.TextTransparency = 0.55
 	subLbl.TextSize = 13
 	subLbl.FontFace = Font.new(assets.interFont)
@@ -486,7 +486,7 @@ function MacLib:CreateLoading(info)
 
 	-- Progress bar background
 	local barBg = Instance.new("Frame")
-	barBg.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	barBg.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
 	barBg.BackgroundTransparency = 0.88
 	barBg.BorderSizePixel = 0
 	barBg.Size = UDim2.new(1, 0, 0, 4)
@@ -515,7 +515,7 @@ function MacLib:CreateLoading(info)
 	stepLbl.BorderSizePixel = 0
 	stepLbl.Size = UDim2.new(1, 0, 0, 14)
 	stepLbl.Text = ""
-	stepLbl.TextColor3 = Color3.fromRGB(255, 255, 255)
+	stepLbl.TextColor3 = Color3.fromRGB(15, 15, 15)
 	stepLbl.TextTransparency = 0.6
 	stepLbl.TextSize = 12
 	stepLbl.FontFace = Font.new(assets.interFont)
@@ -586,7 +586,7 @@ local function _initTooltip(macGui)
 	_tooltipLabel.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
 	_tooltipLabel.BackgroundTransparency = 0.05
 	_tooltipLabel.BorderSizePixel = 0
-	_tooltipLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+	_tooltipLabel.TextColor3 = MacLib.Scheme.FontColor
 	_tooltipLabel.TextSize = 13
 	_tooltipLabel.FontFace = Font.new(assets.interFont)
 	_tooltipLabel.TextWrapped = true
@@ -1110,7 +1110,7 @@ function MacLib:Window(Settings)
 		Enum.FontStyle.Normal
 	)
 	title.Text = Settings.Title
-	title.TextColor3 = Color3.fromRGB(255, 255, 255)
+	title.TextColor3 = MacLib.Scheme.FontColor
 	title.RichText = true
 	title.TextSize = 18
 	title.TextTransparency = 0.1
@@ -1131,7 +1131,7 @@ function MacLib:Window(Settings)
 	)
 	subtitle.RichText = true
 	subtitle.Text = Settings.Subtitle or ""
-	subtitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+	subtitle.TextColor3 = MacLib.Scheme.FontColor
 	subtitle.TextSize = 12
 	subtitle.TextTransparency = 0.7
 	subtitle.TextTruncate = Enum.TextTruncate.SplitWord
@@ -1235,7 +1235,7 @@ function MacLib:Window(Settings)
 	displayName.FontFace = Font.new(assets.interFont, Enum.FontWeight.SemiBold)
 	displayName.RichText = true
 	displayName.Text = "<font color=\"rgb(178,120,255)\">Pork</font> <font color=\"rgb(138,79,255)\">Hub</font>"
-	displayName.TextColor3 = Color3.fromRGB(255, 255, 255)
+	displayName.TextColor3 = MacLib.Scheme.FontColor
 	displayName.TextSize = 13
 	displayName.TextTransparency = 0.05
 	displayName.TextTruncate = Enum.TextTruncate.AtEnd
@@ -1248,7 +1248,7 @@ function MacLib:Window(Settings)
 	local username = Instance.new("TextLabel")
 	username.FontFace = Font.new(assets.interFont)
 	username.Text = "https://discord.gg/u5PYuWXVYW"
-	username.TextColor3 = Color3.fromRGB(255, 255, 255)
+	username.TextColor3 = MacLib.Scheme.FontColor
 	username.TextSize = 11
 	username.TextTransparency = 0.65
 	username.TextTruncate = Enum.TextTruncate.AtEnd
@@ -1529,7 +1529,7 @@ function MacLib:Window(Settings)
 	searchBar.PlaceholderText = "Search..."
 	searchBar.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
 	searchBar.Text = ""
-	searchBar.TextColor3 = Color3.fromRGB(255, 255, 255)
+	searchBar.TextColor3 = MacLib.Scheme.FontColor
 	searchBar.TextSize = 14
 	searchBar.TextTransparency = 0.3
 	searchBar.TextXAlignment = Enum.TextXAlignment.Left
@@ -1962,7 +1962,7 @@ function MacLib:Window(Settings)
 		settingName.FontFace = Font.new(assets.interFont)
 		settingName.Text = Settings.Name
 		settingName.RichText = true
-		settingName.TextColor3 = Color3.fromRGB(255, 255, 255)
+		settingName.TextColor3 = MacLib.Scheme.FontColor
 		settingName.TextSize = 13
 		settingName.TextTransparency = 0.5
 		settingName.TextTruncate = Enum.TextTruncate.SplitWord
@@ -1992,7 +1992,7 @@ function MacLib:Window(Settings)
 			Enum.FontStyle.Normal
 		)
 		checkmark.Text = "✓"
-		checkmark.TextColor3 = Color3.fromRGB(255, 255, 255)
+		checkmark.TextColor3 = MacLib.Scheme.FontColor
 		checkmark.TextSize = 13
 		checkmark.TextTransparency = 1
 		checkmark.TextXAlignment = Enum.TextXAlignment.Left
@@ -2174,7 +2174,7 @@ function MacLib:Window(Settings)
 			)
 			tabSwitcherName.Text = Settings.Name
 			tabSwitcherName.RichText = true
-			tabSwitcherName.TextColor3 = Color3.fromRGB(255, 255, 255)
+			tabSwitcherName.TextColor3 = MacLib.Scheme.FontColor
 			tabSwitcherName.TextSize = 14
 			tabSwitcherName.TextTransparency = 0.5
 			tabSwitcherName.TextTruncate = Enum.TextTruncate.SplitWord
@@ -2352,7 +2352,7 @@ function MacLib:Window(Settings)
 					titleLbl.Text = Settings.Name or ""
 					titleLbl.TextSize = 16
 					titleLbl.FontFace = Font.new(assets.interFont, Enum.FontWeight.Medium)
-					titleLbl.TextColor3 = Color3.fromRGB(255, 255, 255)
+					titleLbl.TextColor3 = MacLib.Scheme.FontColor
 					titleLbl.TextXAlignment = Enum.TextXAlignment.Left
 					titleLbl.RichText = true
 
@@ -2422,7 +2422,7 @@ function MacLib:Window(Settings)
 					local buttonInteract = Instance.new("TextButton")
 					buttonInteract.FontFace = Font.new(assets.interFont, Enum.FontWeight.Medium)
 					buttonInteract.RichText = true
-					buttonInteract.TextColor3 = Color3.fromRGB(255, 255, 255)
+					buttonInteract.TextColor3 = MacLib.Scheme.FontColor
 					buttonInteract.TextSize = 13
 					buttonInteract.TextTransparency = 0.2
 					buttonInteract.TextTruncate = Enum.TextTruncate.AtEnd
@@ -2508,7 +2508,7 @@ function MacLib:Window(Settings)
 					toggleName.FontFace = Font.new(assets.interFont)
 					toggleName.Text = ToggleFunctions.Settings.Name
 					toggleName.RichText = true
-					toggleName.TextColor3 = Color3.fromRGB(255, 255, 255)
+					toggleName.TextColor3 = MacLib.Scheme.FontColor
 					toggleName.TextSize = 13
 					toggleName.TextTransparency = 0.5
 					toggleName.TextTruncate = Enum.TextTruncate.AtEnd
@@ -2633,7 +2633,7 @@ function MacLib:Window(Settings)
 						picker.Position = UDim2.new(1, -48, 0.5, 0)
 						picker.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
 						picker.BorderSizePixel = 0
-						picker.TextColor3 = Color3.fromRGB(255, 255, 255)
+						picker.TextColor3 = MacLib.Scheme.FontColor
 						picker.TextSize = 11
 						picker.FontFace = Font.new(assets.interFont, Enum.FontWeight.SemiBold)
 						picker.AutoButtonColor = false
@@ -2762,7 +2762,7 @@ function MacLib:Window(Settings)
 					sliderName.FontFace = Font.new(assets.interFont)
 					sliderName.Text = SliderFunctions.Settings.Name
 					sliderName.RichText = true
-					sliderName.TextColor3 = Color3.fromRGB(255, 255, 255)
+					sliderName.TextColor3 = MacLib.Scheme.FontColor
 					sliderName.TextSize = 13
 					sliderName.TextTransparency = 0.5
 					sliderName.TextTruncate = Enum.TextTruncate.AtEnd
@@ -2793,7 +2793,7 @@ function MacLib:Window(Settings)
 
 					local sliderValue = Instance.new("TextBox")
 					sliderValue.FontFace = Font.new(assets.interFont)
-					sliderValue.TextColor3 = Color3.fromRGB(255, 255, 255)
+					sliderValue.TextColor3 = MacLib.Scheme.FontColor
 					sliderValue.TextSize = 12
 					sliderValue.TextTransparency = 0.1
 					--sliderValue.TextTruncate = Enum.TextTruncate.AtEnd
@@ -3020,7 +3020,7 @@ function MacLib:Window(Settings)
 					inputName.FontFace = Font.new(assets.interFont)
 					inputName.Text = InputFunctions.Settings.Name
 					inputName.RichText = true
-					inputName.TextColor3 = Color3.fromRGB(255, 255, 255)
+					inputName.TextColor3 = MacLib.Scheme.FontColor
 					inputName.TextSize = 13
 					inputName.TextTransparency = 0.5
 					inputName.TextTruncate = Enum.TextTruncate.AtEnd
@@ -3038,7 +3038,7 @@ function MacLib:Window(Settings)
 					local inputBox = Instance.new("TextBox")
 					inputBox.FontFace = Font.new(assets.interFont)
 					inputBox.Text = "Hello world!"
-					inputBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+					inputBox.TextColor3 = MacLib.Scheme.FontColor
 					inputBox.TextSize = 12
 					inputBox.TextTransparency = 0.1
 					inputBox.AnchorPoint = Vector2.new(1, 0.5)
@@ -3180,7 +3180,7 @@ function MacLib:Window(Settings)
 					keybindName.FontFace = Font.new(assets.interFont)
 					keybindName.Text = KeybindFunctions.Settings.Name
 					keybindName.RichText = true
-					keybindName.TextColor3 = Color3.fromRGB(255, 255, 255)
+					keybindName.TextColor3 = MacLib.Scheme.FontColor
 					keybindName.TextSize = 13
 					keybindName.TextTransparency = 0.5
 					keybindName.TextTruncate = Enum.TextTruncate.AtEnd
@@ -3199,7 +3199,7 @@ function MacLib:Window(Settings)
 					badge.AutoButtonColor = false
 					badge.FontFace = Font.new(assets.interFont, Enum.FontWeight.Medium)
 					badge.Text = "None"
-					badge.TextColor3 = Color3.fromRGB(255, 255, 255)
+					badge.TextColor3 = MacLib.Scheme.FontColor
 					badge.TextTransparency = 0.15
 					badge.TextSize = 12
 					badge.AnchorPoint = Vector2.new(1, 0.5)
@@ -3390,7 +3390,7 @@ function MacLib:Window(Settings)
 					dropdownName.FontFace = Font.new(assets.interFont)
 					dropdownName.Text = Settings.Default and (DropdownFunctions.Settings.Name .. " • " .. table.concat(Selected, ", ")) or (DropdownFunctions.Settings.Name .. "...")
 					dropdownName.RichText = true
-					dropdownName.TextColor3 = Color3.fromRGB(255, 255, 255)
+					dropdownName.TextColor3 = MacLib.Scheme.FontColor
 					dropdownName.TextSize = 13
 					dropdownName.TextTransparency = 0.5
 					dropdownName.TextTruncate = Enum.TextTruncate.SplitWord
@@ -3690,7 +3690,7 @@ function MacLib:Window(Settings)
 						optionName.FontFace = Font.new(assets.interFont)
 						optionName.Text = v
 						optionName.RichText = true
-						optionName.TextColor3 = Color3.fromRGB(255, 255, 255)
+						optionName.TextColor3 = MacLib.Scheme.FontColor
 						optionName.TextSize = 13
 						optionName.TextTransparency = 0.5
 						optionName.TextTruncate = Enum.TextTruncate.AtEnd
@@ -3714,7 +3714,7 @@ function MacLib:Window(Settings)
 						local checkmark = Instance.new("TextLabel")
 						checkmark.FontFace = Font.new(assets.interFont)
 						checkmark.Text = "✓"
-						checkmark.TextColor3 = Color3.fromRGB(255, 255, 255)
+						checkmark.TextColor3 = MacLib.Scheme.FontColor
 						checkmark.TextSize = 13
 						checkmark.TextTransparency = 1
 						checkmark.TextXAlignment = Enum.TextXAlignment.Left
@@ -3978,7 +3978,7 @@ function MacLib:Window(Settings)
 					local colorpickerName = Instance.new("TextLabel")
 					colorpickerName.FontFace = Font.new(assets.interFont)
 					colorpickerName.Text = Settings.Name
-					colorpickerName.TextColor3 = Color3.fromRGB(255, 255, 255)
+					colorpickerName.TextColor3 = MacLib.Scheme.FontColor
 					colorpickerName.TextSize = 13
 					colorpickerName.TextTransparency = 0.5
 					colorpickerName.RichText = true
@@ -4213,7 +4213,7 @@ function MacLib:Window(Settings)
 					local inputName = Instance.new("TextLabel")
 					inputName.FontFace = Font.new(assets.interFont)
 					inputName.Text = "Red"
-					inputName.TextColor3 = Color3.fromRGB(255, 255, 255)
+					inputName.TextColor3 = MacLib.Scheme.FontColor
 					inputName.TextSize = 13
 					inputName.TextTransparency = 0.5
 					inputName.TextTruncate = Enum.TextTruncate.AtEnd
@@ -4241,7 +4241,7 @@ function MacLib:Window(Settings)
 					inputBox.CursorPosition = -1
 					inputBox.FontFace = Font.new(assets.interFont)
 					inputBox.Text = "255"
-					inputBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+					inputBox.TextColor3 = MacLib.Scheme.FontColor
 					inputBox.TextSize = 12
 					inputBox.TextTransparency = 0.1
 					inputBox.TextXAlignment = Enum.TextXAlignment.Left
@@ -4289,7 +4289,7 @@ function MacLib:Window(Settings)
 					local inputName1 = Instance.new("TextLabel")
 					inputName1.FontFace = Font.new(assets.interFont)
 					inputName1.Text = "Green"
-					inputName1.TextColor3 = Color3.fromRGB(255, 255, 255)
+					inputName1.TextColor3 = MacLib.Scheme.FontColor
 					inputName1.TextSize = 13
 					inputName1.TextTransparency = 0.5
 					inputName1.TextTruncate = Enum.TextTruncate.AtEnd
@@ -4316,7 +4316,7 @@ function MacLib:Window(Settings)
 					inputBox1.ClearTextOnFocus = false
 					inputBox1.FontFace = Font.new(assets.interFont)
 					inputBox1.Text = "255"
-					inputBox1.TextColor3 = Color3.fromRGB(255, 255, 255)
+					inputBox1.TextColor3 = MacLib.Scheme.FontColor
 					inputBox1.TextSize = 12
 					inputBox1.TextTransparency = 0.1
 					inputBox1.TextXAlignment = Enum.TextXAlignment.Left
@@ -4364,7 +4364,7 @@ function MacLib:Window(Settings)
 					local inputName2 = Instance.new("TextLabel")
 					inputName2.FontFace = Font.new(assets.interFont)
 					inputName2.Text = "Blue"
-					inputName2.TextColor3 = Color3.fromRGB(255, 255, 255)
+					inputName2.TextColor3 = MacLib.Scheme.FontColor
 					inputName2.TextSize = 13
 					inputName2.TextTransparency = 0.5
 					inputName2.TextTruncate = Enum.TextTruncate.AtEnd
@@ -4391,7 +4391,7 @@ function MacLib:Window(Settings)
 					inputBox2.ClearTextOnFocus = false
 					inputBox2.FontFace = Font.new(assets.interFont)
 					inputBox2.Text = "255"
-					inputBox2.TextColor3 = Color3.fromRGB(255, 255, 255)
+					inputBox2.TextColor3 = MacLib.Scheme.FontColor
 					inputBox2.TextSize = 12
 					inputBox2.TextTransparency = 0.1
 					inputBox2.TextXAlignment = Enum.TextXAlignment.Left
@@ -4440,7 +4440,7 @@ function MacLib:Window(Settings)
 					local inputName3 = Instance.new("TextLabel")
 					inputName3.FontFace = Font.new(assets.interFont)
 					inputName3.Text = "Alpha"
-					inputName3.TextColor3 = Color3.fromRGB(255, 255, 255)
+					inputName3.TextColor3 = MacLib.Scheme.FontColor
 					inputName3.TextSize = 13
 					inputName3.TextTransparency = 0.5
 					inputName3.TextTruncate = Enum.TextTruncate.AtEnd
@@ -4467,7 +4467,7 @@ function MacLib:Window(Settings)
 					inputBox3.ClearTextOnFocus = false
 					inputBox3.FontFace = Font.new(assets.interFont)
 					inputBox3.Text = "0"
-					inputBox3.TextColor3 = Color3.fromRGB(255, 255, 255)
+					inputBox3.TextColor3 = MacLib.Scheme.FontColor
 					inputBox3.TextSize = 12
 					inputBox3.TextTransparency = 0.1
 					inputBox3.TextXAlignment = Enum.TextXAlignment.Left
@@ -4514,7 +4514,7 @@ function MacLib:Window(Settings)
 					local inputName4 = Instance.new("TextLabel")
 					inputName4.FontFace = Font.new(assets.interFont)
 					inputName4.Text = "Hex"
-					inputName4.TextColor3 = Color3.fromRGB(255, 255, 255)
+					inputName4.TextColor3 = MacLib.Scheme.FontColor
 					inputName4.TextSize = 13
 					inputName4.TextTransparency = 0.5
 					inputName4.TextTruncate = Enum.TextTruncate.AtEnd
@@ -4542,7 +4542,7 @@ function MacLib:Window(Settings)
 					inputBox4.CursorPosition = -1
 					inputBox4.FontFace = Font.new(assets.interFont)
 					inputBox4.Text = "255"
-					inputBox4.TextColor3 = Color3.fromRGB(255, 255, 255)
+					inputBox4.TextColor3 = MacLib.Scheme.FontColor
 					inputBox4.TextSize = 12
 					inputBox4.TextTransparency = 0.1
 					inputBox4.TextXAlignment = Enum.TextXAlignment.Left
@@ -4681,7 +4681,7 @@ function MacLib:Window(Settings)
 						Enum.FontStyle.Normal
 					)
 					confirm.Text = "Confirm"
-					confirm.TextColor3 = Color3.fromRGB(255, 255, 255)
+					confirm.TextColor3 = MacLib.Scheme.FontColor
 					confirm.TextSize = 15
 					confirm.TextTransparency = 0.5
 					confirm.TextTruncate = Enum.TextTruncate.AtEnd
@@ -4712,7 +4712,7 @@ function MacLib:Window(Settings)
 						Enum.FontStyle.Normal
 					)
 					cancel.Text = "Cancel"
-					cancel.TextColor3 = Color3.fromRGB(255, 255, 255)
+					cancel.TextColor3 = MacLib.Scheme.FontColor
 					cancel.TextSize = 15
 					cancel.TextTransparency = 0.5
 					cancel.TextTruncate = Enum.TextTruncate.AtEnd
@@ -4765,7 +4765,7 @@ function MacLib:Window(Settings)
 					)
 					paragraphHeader.RichText = true
 					paragraphHeader.Text = ColorpickerFunctions.Settings.Name
-					paragraphHeader.TextColor3 = Color3.fromRGB(255, 255, 255)
+					paragraphHeader.TextColor3 = MacLib.Scheme.FontColor
 					paragraphHeader.TextSize = 18
 					paragraphHeader.TextTransparency = 0.4
 					paragraphHeader.TextWrapped = true
@@ -5162,7 +5162,7 @@ function MacLib:Window(Settings)
 					)
 					headerText.RichText = true
 					headerText.Text = HeaderFunctions.Settings.Text or HeaderFunctions.Settings.Name
-					headerText.TextColor3 = Color3.fromRGB(255, 255, 255)
+					headerText.TextColor3 = MacLib.Scheme.FontColor
 					headerText.TextSize = 16
 					headerText.TextTransparency = 0.3
 					headerText.TextWrapped = true
@@ -5203,7 +5203,7 @@ function MacLib:Window(Settings)
 					labelText.FontFace = Font.new(assets.interFont)
 					labelText.RichText = true
 					labelText.Text = LabelFunctions.Settings.Text or LabelFunctions.Settings.Name
-					labelText.TextColor3 = Color3.fromRGB(255, 255, 255)
+					labelText.TextColor3 = MacLib.Scheme.FontColor
 					labelText.TextSize = 13
 					labelText.TextTransparency = 0.5
 					labelText.TextWrapped = true
@@ -5243,7 +5243,7 @@ function MacLib:Window(Settings)
 					subLabelText.FontFace = Font.new(assets.interFont)
 					subLabelText.RichText = true
 					subLabelText.Text = SubLabelFunctions.Settings.Text or SubLabelFunctions.Settings.Name -- Settings.Name Deprecated use Settings.Text
-					subLabelText.TextColor3 = Color3.fromRGB(255, 255, 255)
+					subLabelText.TextColor3 = MacLib.Scheme.FontColor
 					subLabelText.TextSize = 12
 					subLabelText.TextTransparency = 0.7
 					subLabelText.TextWrapped = true
@@ -5289,7 +5289,7 @@ function MacLib:Window(Settings)
 					)
 					paragraphHeader.RichText = true
 					paragraphHeader.Text = ParagraphFunctions.Settings.Header
-					paragraphHeader.TextColor3 = Color3.fromRGB(255, 255, 255)
+					paragraphHeader.TextColor3 = MacLib.Scheme.FontColor
 					paragraphHeader.TextSize = 15
 					paragraphHeader.TextTransparency = 0.4
 					paragraphHeader.TextWrapped = true
@@ -5311,7 +5311,7 @@ function MacLib:Window(Settings)
 					paragraphBody.FontFace = Font.new(assets.interFont)
 					paragraphBody.RichText = true
 					paragraphBody.Text = ParagraphFunctions.Settings.Body
-					paragraphBody.TextColor3 = Color3.fromRGB(255, 255, 255)
+					paragraphBody.TextColor3 = MacLib.Scheme.FontColor
 					paragraphBody.TextSize = 13
 					paragraphBody.TextTransparency = 0.5
 					paragraphBody.TextWrapped = true
@@ -5779,7 +5779,7 @@ function MacLib:Window(Settings)
 		)
 		notificationTitle.RichText = true
 		notificationTitle.Text = Settings.Title
-		notificationTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+		notificationTitle.TextColor3 = MacLib.Scheme.FontColor
 		notificationTitle.TextSize = 13
 		notificationTitle.TextTransparency = 0.2
 		notificationTitle.TextTruncate = Enum.TextTruncate.SplitWord
@@ -5805,7 +5805,7 @@ function MacLib:Window(Settings)
 			Enum.FontStyle.Normal
 		)
 		notificationDescription.Text = Settings.Description
-		notificationDescription.TextColor3 = Color3.fromRGB(255, 255, 255)
+		notificationDescription.TextColor3 = MacLib.Scheme.FontColor
 		notificationDescription.TextSize = 11
 		notificationDescription.TextTransparency = 0.5
 		notificationDescription.TextWrapped = true
@@ -5846,7 +5846,7 @@ function MacLib:Window(Settings)
 		local interactable = Instance.new("TextButton")
 		interactable.FontFace = Font.new(assets.interFont)
 		interactable.Text = "✓"
-		interactable.TextColor3 = Color3.fromRGB(255, 255, 255)
+		interactable.TextColor3 = MacLib.Scheme.FontColor
 		interactable.TextSize = 17
 		interactable.TextTransparency = 0.2
 		interactable.AnchorPoint = Vector2.new(1, 0.5)
@@ -6003,7 +6003,7 @@ function MacLib:Window(Settings)
 		)
 		paragraphHeader.RichText = true
 		paragraphHeader.Text = Settings.Title
-		paragraphHeader.TextColor3 = Color3.fromRGB(255, 255, 255)
+		paragraphHeader.TextColor3 = MacLib.Scheme.FontColor
 		paragraphHeader.TextSize = 18
 		paragraphHeader.TextTransparency = 0.4
 		paragraphHeader.TextWrapped = true
@@ -6024,7 +6024,7 @@ function MacLib:Window(Settings)
 		paragraphBody.FontFace = Font.new(assets.interFont)
 		paragraphBody.RichText = true
 		paragraphBody.Text = Settings.Description
-		paragraphBody.TextColor3 = Color3.fromRGB(255, 255, 255)
+		paragraphBody.TextColor3 = MacLib.Scheme.FontColor
 		paragraphBody.TextSize = 14
 		paragraphBody.TextTransparency = 0.5
 		paragraphBody.TextWrapped = true
@@ -6093,7 +6093,7 @@ function MacLib:Window(Settings)
 			local button = Instance.new("TextButton")
 			button.FontFace = Font.new(assets.interFont)
 			button.Text = v.Name
-			button.TextColor3 = Color3.fromRGB(255, 255, 255)
+			button.TextColor3 = MacLib.Scheme.FontColor
 			button.TextSize = 15
 			button.TextTransparency = 0.5
 			button.TextTruncate = Enum.TextTruncate.AtEnd
@@ -6636,7 +6636,7 @@ function MacLib:Window(Settings)
 
 		local function makeMobileButton(text, yPos)
 			local btn = Instance.new("TextButton")
-			btn.TextColor3 = Color3.fromRGB(255, 255, 255)
+			btn.TextColor3 = MacLib.Scheme.FontColor
 			btn.TextSize = 14
 			btn.FontFace = Font.new(assets.interFont, Enum.FontWeight.SemiBold)
 			btn.BackgroundColor3 = Color3.fromRGB(15, 15, 15)

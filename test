@@ -361,7 +361,7 @@ function MacLib:CreateLoading(info)
 
 	local cardStroke = Instance.new("UIStroke")
 	cardStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-	cardStroke.Color = Color3.fromRGB(255, 255, 255)
+	cardStroke.Color = Color3.fromRGB(15, 15, 15)
 	cardStroke.Transparency = 0.92
 	cardStroke.Parent = card
 
@@ -376,7 +376,7 @@ function MacLib:CreateLoading(info)
 	-- Divider under topbar
 	local topDivider = Instance.new("Frame")
 	topDivider.AnchorPoint = Vector2.new(0, 1)
-	topDivider.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	topDivider.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
 	topDivider.BackgroundTransparency = 0.92
 	topDivider.BorderSizePixel = 0
 	topDivider.Position = UDim2.fromScale(0, 1)
@@ -415,7 +415,7 @@ function MacLib:CreateLoading(info)
 	titleLbl.BorderSizePixel = 0
 	titleLbl.AutomaticSize = Enum.AutomaticSize.XY
 	titleLbl.Text = title
-	titleLbl.TextColor3 = Color3.fromRGB(255, 255, 255)
+	titleLbl.TextColor3 = Color3.fromRGB(15, 15, 15)
 	titleLbl.TextTransparency = 0.05
 	titleLbl.TextSize = 18
 	titleLbl.FontFace = Font.new(assets.interFont, Enum.FontWeight.SemiBold)

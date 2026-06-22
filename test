@@ -1614,11 +1614,11 @@ function MacLib:Window(Settings)
 		sidebarWatermark.BackgroundTransparency = 1
 		sidebarWatermark.ImageColor3 = Settings.SidebarWatermarkColor or Settings.WatermarkColor or Color3.fromRGB(238, 143, 154)
 		sidebarWatermark.ImageTransparency = Settings.SidebarWatermarkTransparency or 0.35
-		sidebarWatermark.Size = Settings.SidebarWatermarkSize or UDim2.fromOffset(280, 280)
+		sidebarWatermark.Size = Settings.SidebarWatermarkSize or UDim2.fromOffset(320, 320)
 
-		-- left side, slightly inside the sidebar
+		-- left-side watermark, visible but not too far outside the UI
 		sidebarWatermark.AnchorPoint = Settings.SidebarWatermarkAnchorPoint or Vector2.new(0, 0)
-		sidebarWatermark.Position = Settings.SidebarWatermarkPosition or UDim2.new(0, -20, 1, -300)
+		sidebarWatermark.Position = Settings.SidebarWatermarkPosition or UDim2.new(0, -25, 1, -330)
 
 		sidebarWatermark.ZIndex = Settings.SidebarWatermarkZIndex or 0
 		applyImage(sidebarWatermark, Settings.SidebarWatermarkImage)

@@ -87,6 +87,18 @@ local function resolveIcon(name)
 	return nil
 end
 
+local function applyImage(imageObject, source)
+	if not imageObject or not source or source == "" then return end
+	local icon = resolveIcon(tostring(source))
+	if icon then
+		imageObject.Image = icon.Url
+		imageObject.ImageRectOffset = icon.ImageRectOffset or Vector2.zero
+		imageObject.ImageRectSize = icon.ImageRectSize or Vector2.zero
+	else
+		imageObject.Image = tostring(source)
+	end
+end
+
 -- Stealth: protect GUI from game detection
 local ProtectGui = protectgui or (syn and syn.protect_gui) or function() end
 local function SafeParentUI(inst, skipHidden)
@@ -1112,7 +1124,7 @@ function MacLib:Window(Settings)
 		windowIcon.BackgroundTransparency = 1
 		windowIcon.BorderSizePixel = 0
 		windowIcon.Size = UDim2.fromOffset(28, 28)
-		windowIcon.Image = Settings.Image
+		applyImage(windowIcon, Settings.Image)
 		windowIcon.LayoutOrder = 0
 		windowIcon.Parent = informationHolder
 	end
@@ -1594,6 +1606,34 @@ function MacLib:Window(Settings)
 	topbar.Parent = content
 
 	content.Parent = base
+
+	-- Pork/background watermark support
+	if Settings.SidebarWatermarkImage and Settings.SidebarWatermarkImage ~= "" then
+		local sidebarWatermark = Instance.new("ImageLabel")
+		sidebarWatermark.Name = "SidebarWatermark"
+		sidebarWatermark.BackgroundTransparency = 1
+		sidebarWatermark.ImageColor3 = Settings.WatermarkColor or Color3.fromRGB(238, 143, 154)
+		sidebarWatermark.ImageTransparency = Settings.SidebarWatermarkTransparency or 0.82
+		sidebarWatermark.Size = Settings.SidebarWatermarkSize or UDim2.fromOffset(280, 280)
+		sidebarWatermark.Position = Settings.SidebarWatermarkPosition or UDim2.new(0, -80, 1, -340)
+		sidebarWatermark.ZIndex = 0
+		applyImage(sidebarWatermark, Settings.SidebarWatermarkImage)
+		sidebarWatermark.Parent = sidebar
+	end
+
+	if Settings.WatermarkImage and Settings.WatermarkImage ~= "" then
+		local centerWatermark = Instance.new("ImageLabel")
+		centerWatermark.Name = "ContentWatermark"
+		centerWatermark.BackgroundTransparency = 1
+		centerWatermark.ImageColor3 = Settings.WatermarkColor or Color3.fromRGB(238, 143, 154)
+		centerWatermark.ImageTransparency = Settings.WatermarkTransparency or 0.85
+		centerWatermark.Size = Settings.WatermarkSize or UDim2.fromOffset(270, 170)
+		centerWatermark.AnchorPoint = Vector2.new(0.5, 0.5)
+		centerWatermark.Position = Settings.WatermarkPosition or UDim2.fromScale(0.55, 0.63)
+		centerWatermark.ZIndex = 0
+		applyImage(centerWatermark, Settings.WatermarkImage)
+		centerWatermark.Parent = content
+	end
 
 	local globalSettings = Instance.new("Frame")
 	globalSettings.AutomaticSize = Enum.AutomaticSize.XY

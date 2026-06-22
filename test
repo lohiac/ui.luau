@@ -1613,23 +1613,23 @@ if Settings.SidebarWatermarkImage and Settings.SidebarWatermarkImage ~= "" then
 	sidebarWatermark.Name = "SidebarWatermark"
 	sidebarWatermark.BackgroundTransparency = 1
 	sidebarWatermark.ImageColor3 = Settings.SidebarWatermarkColor or Settings.WatermarkColor or Color3.fromRGB(238, 143, 154)
-	sidebarWatermark.ImageTransparency = Settings.SidebarWatermarkTransparency or 0.2
+	sidebarWatermark.ImageTransparency = Settings.SidebarWatermarkTransparency or 0
 	sidebarWatermark.Size = Settings.SidebarWatermarkSize or UDim2.fromOffset(400, 400)
 
 	-- CENTER OF SIDEBAR
-	sidebarWatermark.AnchorPoint = Settings.SidebarWatermarkAnchorPoint or Vector2.new(0.5, 0.5)
-	sidebarWatermark.Position = Settings.SidebarWatermarkPosition or UDim2.fromScale(0.5, 0.5)
+	-- LEFT SIDE OF SIDEBAR
+sidebarWatermark.AnchorPoint = Settings.SidebarWatermarkAnchorPoint or Vector2.new(0, 0)
+sidebarWatermark.Position = Settings.SidebarWatermarkPosition or UDim2.new(0, -60, 1, -300)
 
-	sidebarWatermark.ZIndex = Settings.SidebarWatermarkZIndex or 0
+sidebarWatermark.ZIndex = Settings.SidebarWatermarkZIndex or 0
 
-	applyImage(sidebarWatermark, Settings.SidebarWatermarkImage)
-	sidebarWatermark.Parent = sidebar
-end
+applyImage(sidebarWatermark, Settings.SidebarWatermarkImage)
+sidebarWatermark.Parent = sidebar
 
 	if Settings.WatermarkImage and Settings.WatermarkImage ~= "" then
 		local centerWatermark = Instance.new("ImageLabel")
 		centerWatermark.Name = "ContentWatermark"
-		centerWatermark.BackgroundTransparency = 1
+		centerWatermark.BackgroundTransparency = 0
 		centerWatermark.ImageColor3 = Settings.WatermarkColor or Color3.fromRGB(238, 143, 154)
 		centerWatermark.ImageTransparency = Settings.WatermarkTransparency or 0.91
 		centerWatermark.Size = Settings.WatermarkSize or UDim2.fromOffset(450, 280)

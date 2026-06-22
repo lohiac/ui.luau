@@ -726,6 +726,27 @@ function MacLib:Window(Settings)
 				end
 			end)
 		end
+
+		-- FontColor live update.
+		-- This catches every TextLabel/TextButton/TextBox even if it was not manually
+		-- inserted into MacLib._accentElements.
+		if prop == "FontColor" then
+			local gui = MacLib._screenGui
+			if gui then
+				for _, inst in ipairs(gui:GetDescendants()) do
+					pcall(function()
+						if inst:IsA("TextLabel") or inst:IsA("TextButton") or inst:IsA("TextBox") then
+							TweenService:Create(inst, TweenInfo.new(0.2, Enum.EasingStyle.Sine), {
+								TextColor3 = color
+							}):Play()
+							if inst:IsA("TextBox") then
+								inst.PlaceholderColor3 = color
+							end
+						end
+					end)
+				end
+			end
+		end
 	end
 	end
 
@@ -1527,7 +1548,7 @@ function MacLib:Window(Settings)
 	searchBar.ClearTextOnFocus = false
 	searchBar.FontFace = Font.new(assets.interFont)
 	searchBar.PlaceholderText = "Search..."
-	searchBar.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
+	searchBar.PlaceholderColor3 = MacLib.Scheme.FontColor
 	searchBar.Text = ""
 	searchBar.TextColor3 = MacLib.Scheme.FontColor
 	searchBar.TextSize = 14

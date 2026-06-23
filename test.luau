@@ -1607,23 +1607,25 @@ function MacLib:Window(Settings)
 
 	content.Parent = base
 
-	-- Pork/background watermark support
+	--- Pork/background watermark support
 if Settings.SidebarWatermarkImage and Settings.SidebarWatermarkImage ~= "" then
     local sidebarWatermark = Instance.new("ImageLabel")
     sidebarWatermark.Name = "SidebarWatermark"
     sidebarWatermark.BackgroundTransparency = 1
     sidebarWatermark.ImageColor3 = Settings.SidebarWatermarkColor or Color3.fromRGB(255, 255, 255)
     sidebarWatermark.ImageTransparency = Settings.SidebarWatermarkTransparency or 0.35
-    sidebarWatermark.Size = Settings.SidebarWatermarkSize or UDim2.fromOffset(-220, 220)  -- negative X flips horizontally
+    sidebarWatermark.Size = Settings.SidebarWatermarkSize or UDim2.fromOffset(-220, 220)
     sidebarWatermark.AnchorPoint = Settings.SidebarWatermarkAnchorPoint or Vector2.new(0.5, 0.5)
-    sidebarWatermark.Position = Settings.SidebarWatermarkPosition or UDim2.fromScale(0.62, 0.5)  -- centered in content area
+    sidebarWatermark.Position = Settings.SidebarWatermarkPosition or UDim2.fromScale(0.62, 0.5)
     sidebarWatermark.ZIndex = Settings.SidebarWatermarkZIndex or 1
     applyImage(sidebarWatermark, Settings.SidebarWatermarkImage)
     sidebarWatermark.Parent = base
     WindowFunctions.SidebarWatermark = sidebarWatermark
 end
+
+local centerWatermark = nil
 if Settings.WatermarkImage and Settings.WatermarkImage ~= "" then
-    local centerWatermark = Instance.new("ImageLabel")
+    centerWatermark = Instance.new("ImageLabel")
     centerWatermark.Name = "ContentWatermark"
     centerWatermark.BackgroundTransparency = 1
     centerWatermark.ImageColor3 = Settings.WatermarkColor or Color3.fromRGB(255, 255, 255)
@@ -1635,15 +1637,16 @@ if Settings.WatermarkImage and Settings.WatermarkImage ~= "" then
     applyImage(centerWatermark, Settings.WatermarkImage)
     centerWatermark.Parent = content
     WindowFunctions.Watermark = centerWatermark
-    function WindowFunctions:SetWatermarkPosition(position)
-        centerWatermark.Position = position
-    end
-    function WindowFunctions:SetWatermarkSize(size)
-        centerWatermark.Size = size
-    end
-    function WindowFunctions:SetWatermarkTransparency(transparency)
-        centerWatermark.ImageTransparency = transparency
-    end
+end
+
+function WindowFunctions:SetWatermarkPosition(position)
+    if centerWatermark then centerWatermark.Position = position end
+end
+function WindowFunctions:SetWatermarkSize(size)
+    if centerWatermark then centerWatermark.Size = size end
+end
+function WindowFunctions:SetWatermarkTransparency(transparency)
+    if centerWatermark then centerWatermark.ImageTransparency = transparency end
 end
 	local globalSettings = Instance.new("Frame")
 	globalSettings.AutomaticSize = Enum.AutomaticSize.XY

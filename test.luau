@@ -1609,26 +1609,17 @@ function MacLib:Window(Settings)
 
 	-- Pork/background watermark support
 if Settings.SidebarWatermarkImage and Settings.SidebarWatermarkImage ~= "" then
-    local flipFrame = Instance.new("Frame")
-    flipFrame.Name = "SidebarWatermarkFlip"
-    flipFrame.BackgroundTransparency = 1
-    flipFrame.Size = Settings.SidebarWatermarkSize or UDim2.fromOffset(260, 260)
-    flipFrame.AnchorPoint = Settings.SidebarWatermarkAnchorPoint or Vector2.new(0.5, 0.5)
-    flipFrame.Position = Settings.SidebarWatermarkPosition or UDim2.fromScale(0.62, 0.62)
-    flipFrame.ZIndex = Settings.SidebarWatermarkZIndex or 1
-    flipFrame.Parent = base
-
     local sidebarWatermark = Instance.new("ImageLabel")
     sidebarWatermark.Name = "SidebarWatermark"
     sidebarWatermark.BackgroundTransparency = 1
     sidebarWatermark.ImageColor3 = Settings.SidebarWatermarkColor or Color3.fromRGB(255, 255, 255)
     sidebarWatermark.ImageTransparency = Settings.SidebarWatermarkTransparency or 0.35
-    sidebarWatermark.AnchorPoint = Vector2.new(0.5, 0.5)
-    sidebarWatermark.Size = UDim2.new(-1, 0, 1, 0)
-    sidebarWatermark.Position = UDim2.fromScale(1, 0.5)
+    sidebarWatermark.Size = Settings.SidebarWatermarkSize or UDim2.fromOffset(260, 260)
+    sidebarWatermark.AnchorPoint = Settings.SidebarWatermarkAnchorPoint or Vector2.new(0.5, 0.5)
+    sidebarWatermark.Position = Settings.SidebarWatermarkPosition or UDim2.fromScale(0.62, 0.62)
     sidebarWatermark.ZIndex = Settings.SidebarWatermarkZIndex or 1
     applyImage(sidebarWatermark, Settings.SidebarWatermarkImage)
-    sidebarWatermark.Parent = flipFrame
+    sidebarWatermark.Parent = base
     WindowFunctions.SidebarWatermark = sidebarWatermark
 end
 

@@ -917,7 +917,6 @@ function MacLib:Window(Settings)
 	baseUIStroke.Parent = base
 
 	local sidebar = Instance.new("Frame")
-sidebar.ClipsDescendants = true
 	sidebar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	sidebar.BackgroundTransparency = 1
 	sidebar.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -1608,26 +1607,24 @@ sidebar.ClipsDescendants = true
 
 	content.Parent = base
 
-	-- Sidebar watermark
-if Settings.SidebarWatermarkImage and Settings.SidebarWatermarkImage ~= "" then
-    local sidebarWatermark = Instance.new("ImageLabel")
-    sidebarWatermark.Name = "SidebarWatermark"
-    sidebarWatermark.BackgroundTransparency = 1
-    sidebarWatermark.ImageColor3 = Settings.SidebarWatermarkColor or Color3.fromRGB(249, 235, 235)
-    sidebarWatermark.ImageTransparency = Settings.SidebarWatermarkTransparency or 0.45
-    sidebarWatermark.Size = Settings.SidebarWatermarkSize or UDim2.fromOffset(320, 320)
+	-- Pork/background watermark support
+	if Settings.SidebarWatermarkImage and Settings.SidebarWatermarkImage ~= "" then
+		local sidebarWatermark = Instance.new("ImageLabel")
+		sidebarWatermark.Name = "SidebarWatermark"
+		sidebarWatermark.BackgroundTransparency = 1
+		sidebarWatermark.ImageColor3 = Settings.SidebarWatermarkColor or Color3.fromRGB(255, 255, 255)
+		sidebarWatermark.ImageTransparency = Settings.SidebarWatermarkTransparency or 0.7
+		sidebarWatermark.Size = Settings.SidebarWatermarkSize or UDim2.fromOffset(320, 320)
+		sidebarWatermark.AnchorPoint = Settings.SidebarWatermarkAnchorPoint or Vector2.new(0, 0)
+		sidebarWatermark.Position = Settings.SidebarWatermarkPosition or UDim2.new(0, -75, 1, -330)
 
-    sidebarWatermark.AnchorPoint = Vector2.new(0, 0)
-    sidebarWatermark.Position = UDim2.new(0, -220, 1, -320)
+		-- Needs to be above the base/background, but still below normal controls.
+		sidebarWatermark.ZIndex = Settings.SidebarWatermarkZIndex or 1
 
-    -- keep it behind normal sidebar UI
-    sidebarWatermark.ZIndex = 0
-
-    applyImage(sidebarWatermark, Settings.SidebarWatermarkImage)
-    sidebarWatermark.Parent = sidebar
-
-    WindowFunctions.SidebarWatermark = sidebarWatermark
-end
+		applyImage(sidebarWatermark, Settings.SidebarWatermarkImage)
+		sidebarWatermark.Parent = sidebar
+		WindowFunctions.SidebarWatermark = sidebarWatermark
+	end
 
 	if Settings.WatermarkImage and Settings.WatermarkImage ~= "" then
 		local centerWatermark = Instance.new("ImageLabel")

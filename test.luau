@@ -1614,15 +1614,37 @@ if Settings.SidebarWatermarkImage and Settings.SidebarWatermarkImage ~= "" then
     sidebarWatermark.BackgroundTransparency = 1
     sidebarWatermark.ImageColor3 = Settings.SidebarWatermarkColor or Color3.fromRGB(255, 255, 255)
     sidebarWatermark.ImageTransparency = Settings.SidebarWatermarkTransparency or 0.35
-    sidebarWatermark.Size = Settings.SidebarWatermarkSize or UDim2.fromOffset(260, 260)
+    sidebarWatermark.Size = Settings.SidebarWatermarkSize or UDim2.fromOffset(-220, 220)  -- negative X flips horizontally
     sidebarWatermark.AnchorPoint = Settings.SidebarWatermarkAnchorPoint or Vector2.new(0.5, 0.5)
-    sidebarWatermark.Position = Settings.SidebarWatermarkPosition or UDim2.fromScale(0.62, 0.62)
+    sidebarWatermark.Position = Settings.SidebarWatermarkPosition or UDim2.fromScale(0.62, 0.5)  -- centered in content area
     sidebarWatermark.ZIndex = Settings.SidebarWatermarkZIndex or 1
     applyImage(sidebarWatermark, Settings.SidebarWatermarkImage)
     sidebarWatermark.Parent = base
     WindowFunctions.SidebarWatermark = sidebarWatermark
 end
-
+if Settings.WatermarkImage and Settings.WatermarkImage ~= "" then
+    local centerWatermark = Instance.new("ImageLabel")
+    centerWatermark.Name = "ContentWatermark"
+    centerWatermark.BackgroundTransparency = 1
+    centerWatermark.ImageColor3 = Settings.WatermarkColor or Color3.fromRGB(255, 255, 255)
+    centerWatermark.ImageTransparency = Settings.WatermarkTransparency or 0.91
+    centerWatermark.Size = Settings.WatermarkSize or UDim2.fromOffset(450, 280)
+    centerWatermark.AnchorPoint = Settings.WatermarkAnchorPoint or Vector2.new(0.5, 0.5)
+    centerWatermark.Position = Settings.WatermarkPosition or UDim2.fromScale(0.85, 0.42)
+    centerWatermark.ZIndex = Settings.WatermarkZIndex or 1
+    applyImage(centerWatermark, Settings.WatermarkImage)
+    centerWatermark.Parent = content
+    WindowFunctions.Watermark = centerWatermark
+    function WindowFunctions:SetWatermarkPosition(position)
+        centerWatermark.Position = position
+    end
+    function WindowFunctions:SetWatermarkSize(size)
+        centerWatermark.Size = size
+    end
+    function WindowFunctions:SetWatermarkTransparency(transparency)
+        centerWatermark.ImageTransparency = transparency
+    end
+end
 	local globalSettings = Instance.new("Frame")
 	globalSettings.AutomaticSize = Enum.AutomaticSize.XY
 	globalSettings.BackgroundColor3 = Color3.fromRGB(15, 15, 15)

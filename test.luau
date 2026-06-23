@@ -1614,9 +1614,9 @@ function MacLib:Window(Settings)
 		sidebarWatermark.BackgroundTransparency = 1
 		sidebarWatermark.ImageColor3 = Settings.SidebarWatermarkColor or Color3.fromRGB(255, 255, 255)
 		sidebarWatermark.ImageTransparency = Settings.SidebarWatermarkTransparency or 0.35
-		sidebarWatermark.Size = Settings.SidebarWatermarkSize or UDim2.fromOffset(-220, 220)
+		sidebarWatermark.Size = Settings.SidebarWatermarkSize or UDim2.fromOffset(-280, 220)
 		sidebarWatermark.AnchorPoint = Settings.SidebarWatermarkAnchorPoint or Vector2.new(0.5, 0.5)
-		sidebarWatermark.Position = Settings.SidebarWatermarkPosition or UDim2.fromScale(0.62, 0.5)
+		sidebarWatermark.Position = Settings.SidebarWatermarkPosition or UDim2.fromScale(0.58, 0.5)
 		sidebarWatermark.ZIndex = Settings.SidebarWatermarkZIndex or 1
 		applyImage(sidebarWatermark, Settings.SidebarWatermarkImage)
 		sidebarWatermark.Parent = base

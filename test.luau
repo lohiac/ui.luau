@@ -1614,9 +1614,8 @@ if Settings.SidebarWatermarkImage and Settings.SidebarWatermarkImage ~= "" then
     flipFrame.BackgroundTransparency = 1
     flipFrame.Size = Settings.SidebarWatermarkSize or UDim2.fromOffset(260, 260)
     flipFrame.AnchorPoint = Settings.SidebarWatermarkAnchorPoint or Vector2.new(0.5, 0.5)
-    flipFrame.Position = Settings.SidebarWatermarkPosition or UDim2.fromScale(0.62, 0.62)  -- lower
+    flipFrame.Position = Settings.SidebarWatermarkPosition or UDim2.fromScale(0.62, 0.62)
     flipFrame.ZIndex = Settings.SidebarWatermarkZIndex or 1
-    flipFrame.ClipsDescendants = false
     flipFrame.Parent = base
 
     local sidebarWatermark = Instance.new("ImageLabel")
@@ -1624,10 +1623,7 @@ if Settings.SidebarWatermarkImage and Settings.SidebarWatermarkImage ~= "" then
     sidebarWatermark.BackgroundTransparency = 1
     sidebarWatermark.ImageColor3 = Settings.SidebarWatermarkColor or Color3.fromRGB(255, 255, 255)
     sidebarWatermark.ImageTransparency = Settings.SidebarWatermarkTransparency or 0.35
-    sidebarWatermark.Size = UDim2.fromScale(1, 1)
     sidebarWatermark.AnchorPoint = Vector2.new(0.5, 0.5)
-    sidebarWatermark.Position = UDim2.fromScale(0.5, 0.5)
-    -- Flip horizontally by scaling X to -1
     sidebarWatermark.Size = UDim2.new(-1, 0, 1, 0)
     sidebarWatermark.Position = UDim2.fromScale(1, 0.5)
     sidebarWatermark.ZIndex = Settings.SidebarWatermarkZIndex or 1

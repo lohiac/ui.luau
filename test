@@ -917,7 +917,7 @@ function MacLib:Window(Settings)
 	baseUIStroke.Parent = base
 
 	local sidebar = Instance.new("Frame")
-	sidebar.ClipsDescendants = true
+sidebar.ClipsDescendants = true
 	sidebar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	sidebar.BackgroundTransparency = 1
 	sidebar.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -1608,53 +1608,26 @@ function MacLib:Window(Settings)
 
 	content.Parent = base
 
-	-- Sidebar watermark: pig rear stays visible, rest is covered by the sidebar background
-	if Settings.SidebarWatermarkImage and Settings.SidebarWatermarkImage ~= "" then
-		local sidebarWatermark = Instance.new("ImageLabel")
-		sidebarWatermark.Name = "SidebarWatermark"
-		sidebarWatermark.BackgroundTransparency = 1
-		sidebarWatermark.ImageColor3 = Settings.SidebarWatermarkColor or Color3.fromRGB(249, 235, 235)
-		sidebarWatermark.ImageTransparency = Settings.SidebarWatermarkTransparency or 0.45
-		sidebarWatermark.Size = Settings.SidebarWatermarkSize or UDim2.fromOffset(320, 320)
-		sidebarWatermark.AnchorPoint = Vector2.new(0, 0)
-		sidebarWatermark.Position = UDim2.new(0, -220, 1, -320)
-		sidebarWatermark.ZIndex = 0
+	-- Sidebar watermark
+if Settings.SidebarWatermarkImage and Settings.SidebarWatermarkImage ~= "" then
+    local sidebarWatermark = Instance.new("ImageLabel")
+    sidebarWatermark.Name = "SidebarWatermark"
+    sidebarWatermark.BackgroundTransparency = 1
+    sidebarWatermark.ImageColor3 = Settings.SidebarWatermarkColor or Color3.fromRGB(249, 235, 235)
+    sidebarWatermark.ImageTransparency = Settings.SidebarWatermarkTransparency or 0.45
+    sidebarWatermark.Size = Settings.SidebarWatermarkSize or UDim2.fromOffset(320, 320)
 
-		applyImage(sidebarWatermark, Settings.SidebarWatermarkImage)
-		sidebarWatermark.Parent = sidebar
+    sidebarWatermark.AnchorPoint = Vector2.new(0, 0)
+    sidebarWatermark.Position = UDim2.new(0, -220, 1, -320)
 
-		-- This covers the unwanted pig body with the same color as the UI background.
-		-- Lower CoverStart = covers more pig. Higher CoverStart = leaves more pig visible.
-		local CoverStart = Settings.SidebarWatermarkCoverStart or 95
+    -- keep it behind normal sidebar UI
+    sidebarWatermark.ZIndex = 0
 
-		local pigCover = Instance.new("Frame")
-		pigCover.Name = "SidebarPigCover"
-		pigCover.BackgroundColor3 = MacLib.Scheme.BackgroundColor
-		pigCover.BackgroundTransparency = 0
-		pigCover.BorderSizePixel = 0
-		pigCover.Position = UDim2.new(0, CoverStart, 0, 0)
-		pigCover.Size = UDim2.new(1, -CoverStart, 1, 0)
-		pigCover.ZIndex = 1
-		pigCover.Parent = sidebar
+    applyImage(sidebarWatermark, Settings.SidebarWatermarkImage)
+    sidebarWatermark.Parent = sidebar
 
-		if MacLib._accentElements then
-			table.insert(MacLib._accentElements, {
-				inst = pigCover,
-				prop = "BackgroundColor3",
-				schemeProp = "BackgroundColor"
-			})
-		end
-
-		-- Keep all real sidebar UI above the cover.
-		for _, obj in ipairs(sidebar:GetDescendants()) do
-			if obj:IsA("GuiObject") and obj ~= sidebarWatermark and obj ~= pigCover then
-				obj.ZIndex = math.max(obj.ZIndex, 2)
-			end
-		end
-
-		WindowFunctions.SidebarWatermark = sidebarWatermark
-		WindowFunctions.SidebarPigCover = pigCover
-	end
+    WindowFunctions.SidebarWatermark = sidebarWatermark
+end
 
 	if Settings.WatermarkImage and Settings.WatermarkImage ~= "" then
 		local centerWatermark = Instance.new("ImageLabel")

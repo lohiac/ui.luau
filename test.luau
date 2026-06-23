@@ -1609,41 +1609,31 @@ function MacLib:Window(Settings)
 
 	-- Pork/background watermark support
 if Settings.SidebarWatermarkImage and Settings.SidebarWatermarkImage ~= "" then
+    local flipFrame = Instance.new("Frame")
+    flipFrame.Name = "SidebarWatermarkFlip"
+    flipFrame.BackgroundTransparency = 1
+    flipFrame.Size = Settings.SidebarWatermarkSize or UDim2.fromOffset(260, 260)
+    flipFrame.AnchorPoint = Settings.SidebarWatermarkAnchorPoint or Vector2.new(0.5, 0.5)
+    flipFrame.Position = Settings.SidebarWatermarkPosition or UDim2.fromScale(0.62, 0.62)  -- lower
+    flipFrame.ZIndex = Settings.SidebarWatermarkZIndex or 1
+    flipFrame.ClipsDescendants = false
+    flipFrame.Parent = base
+
     local sidebarWatermark = Instance.new("ImageLabel")
     sidebarWatermark.Name = "SidebarWatermark"
     sidebarWatermark.BackgroundTransparency = 1
     sidebarWatermark.ImageColor3 = Settings.SidebarWatermarkColor or Color3.fromRGB(255, 255, 255)
     sidebarWatermark.ImageTransparency = Settings.SidebarWatermarkTransparency or 0.35
-    sidebarWatermark.Size = Settings.SidebarWatermarkSize or UDim2.fromOffset(-220, 220)  -- negative X flips horizontally
-    sidebarWatermark.AnchorPoint = Settings.SidebarWatermarkAnchorPoint or Vector2.new(0.5, 0.5)
-    sidebarWatermark.Position = Settings.SidebarWatermarkPosition or UDim2.fromScale(0.62, 0.5)  -- centered in content area
+    sidebarWatermark.Size = UDim2.fromScale(1, 1)
+    sidebarWatermark.AnchorPoint = Vector2.new(0.5, 0.5)
+    sidebarWatermark.Position = UDim2.fromScale(0.5, 0.5)
+    -- Flip horizontally by scaling X to -1
+    sidebarWatermark.Size = UDim2.new(-1, 0, 1, 0)
+    sidebarWatermark.Position = UDim2.fromScale(1, 0.5)
     sidebarWatermark.ZIndex = Settings.SidebarWatermarkZIndex or 1
     applyImage(sidebarWatermark, Settings.SidebarWatermarkImage)
-    sidebarWatermark.Parent = base
+    sidebarWatermark.Parent = flipFrame
     WindowFunctions.SidebarWatermark = sidebarWatermark
-end
-if Settings.WatermarkImage and Settings.WatermarkImage ~= "" then
-    local centerWatermark = Instance.new("ImageLabel")
-    centerWatermark.Name = "ContentWatermark"
-    centerWatermark.BackgroundTransparency = 1
-    centerWatermark.ImageColor3 = Settings.WatermarkColor or Color3.fromRGB(255, 255, 255)
-    centerWatermark.ImageTransparency = Settings.WatermarkTransparency or 0.91
-    centerWatermark.Size = Settings.WatermarkSize or UDim2.fromOffset(450, 280)
-    centerWatermark.AnchorPoint = Settings.WatermarkAnchorPoint or Vector2.new(0.5, 0.5)
-    centerWatermark.Position = Settings.WatermarkPosition or UDim2.fromScale(0.85, 0.42)
-    centerWatermark.ZIndex = Settings.WatermarkZIndex or 1
-    applyImage(centerWatermark, Settings.WatermarkImage)
-    centerWatermark.Parent = content
-    WindowFunctions.Watermark = centerWatermark
-    function WindowFunctions:SetWatermarkPosition(position)
-        centerWatermark.Position = position
-    end
-    function WindowFunctions:SetWatermarkSize(size)
-        centerWatermark.Size = size
-    end
-    function WindowFunctions:SetWatermarkTransparency(transparency)
-        centerWatermark.ImageTransparency = transparency
-    end
 end
 
 	local globalSettings = Instance.new("Frame")

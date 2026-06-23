@@ -1616,7 +1616,7 @@ function MacLib:Window(Settings)
 		sidebarWatermark.ImageTransparency = Settings.SidebarWatermarkTransparency or 0.35
 		sidebarWatermark.Size = Settings.SidebarWatermarkSize or UDim2.fromOffset(320, 320)
 		sidebarWatermark.AnchorPoint = Settings.SidebarWatermarkAnchorPoint or Vector2.new(0, 0)
-		sidebarWatermark.Position = Settings.SidebarWatermarkPosition or UDim2.new(0, 300, 1, -330)
+		sidebarWatermark.Position = Settings.SidebarWatermarkPosition or UDim2.new(0, 400, 1, -330)
 
 		-- Needs to be above the base/background, but still below normal controls.
 		sidebarWatermark.ZIndex = Settings.SidebarWatermarkZIndex or 1

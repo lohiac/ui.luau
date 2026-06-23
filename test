@@ -1,8 +1,3 @@
-
-
-
-test (6).txt
-Belge
 local MacLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/lohiac/ui.luau/refs/heads/main/test?t=" .. os.time()))()
 
 local PigFace  = "rbxassetid://122532961577506"

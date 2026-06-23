@@ -292,7 +292,7 @@ So if 18824089198 works but 122532961577506 does not, the library is not the cau
 One thing in the library did change/affect visibility though: watermarks are very faded by default:
 
 WatermarkTransparency = 0.91
-SidebarWatermarkTransparency = 0.35
+SidebarWatermarkTransparency = 0.75
 
 
 But your direct ImageLabel test also failed, so this is still an asset/Cdn/permission issue, not MacLib.

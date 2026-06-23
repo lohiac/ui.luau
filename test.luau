@@ -1608,23 +1608,20 @@ function MacLib:Window(Settings)
 	content.Parent = base
 
 	-- Pork/background watermark support
-	if Settings.SidebarWatermarkImage and Settings.SidebarWatermarkImage ~= "" then
-		local sidebarWatermark = Instance.new("ImageLabel")
-		sidebarWatermark.Name = "SidebarWatermark"
-		sidebarWatermark.BackgroundTransparency = 1
-		sidebarWatermark.ImageColor3 = Settings.SidebarWatermarkColor or Color3.fromRGB(255, 255, 255)
-		sidebarWatermark.ImageTransparency = Settings.SidebarWatermarkTransparency or 0.35
-		sidebarWatermark.Size = Settings.SidebarWatermarkSize or UDim2.fromOffset(320, 320)
-		sidebarWatermark.AnchorPoint = Settings.SidebarWatermarkAnchorPoint or Vector2.new(0, 0)
-		sidebarWatermark.Position = Settings.SidebarWatermarkPosition or UDim2.new(0, 360, 1, -330)
-
-		-- Needs to be above the base/background, but still below normal controls.
-		sidebarWatermark.ZIndex = Settings.SidebarWatermarkZIndex or 1
-
-		applyImage(sidebarWatermark, Settings.SidebarWatermarkImage)
-		sidebarWatermark.Parent = sidebar
-		WindowFunctions.SidebarWatermark = sidebarWatermark
-	end
+if Settings.SidebarWatermarkImage and Settings.SidebarWatermarkImage ~= "" then
+    local sidebarWatermark = Instance.new("ImageLabel")
+    sidebarWatermark.Name = "SidebarWatermark"
+    sidebarWatermark.BackgroundTransparency = 1
+    sidebarWatermark.ImageColor3 = Settings.SidebarWatermarkColor or Color3.fromRGB(255, 255, 255)
+    sidebarWatermark.ImageTransparency = Settings.SidebarWatermarkTransparency or 0.35
+    sidebarWatermark.Size = Settings.SidebarWatermarkSize or UDim2.fromOffset(320, 320)
+    sidebarWatermark.AnchorPoint = Settings.SidebarWatermarkAnchorPoint or Vector2.new(1, 1)
+    sidebarWatermark.Position = Settings.SidebarWatermarkPosition or UDim2.new(1, 0, 1, 0)
+    sidebarWatermark.ZIndex = Settings.SidebarWatermarkZIndex or 1
+    applyImage(sidebarWatermark, Settings.SidebarWatermarkImage)
+    sidebarWatermark.Parent = sidebar
+    WindowFunctions.SidebarWatermark = sidebarWatermark
+end
 
 	if Settings.WatermarkImage and Settings.WatermarkImage ~= "" then
 		local centerWatermark = Instance.new("ImageLabel")

@@ -1607,7 +1607,7 @@ function MacLib:Window(Settings)
 
 	content.Parent = base
 
-	--- Pork/background watermark support
+	-- Pork/background watermark support
 if Settings.SidebarWatermarkImage and Settings.SidebarWatermarkImage ~= "" then
     local sidebarWatermark = Instance.new("ImageLabel")
     sidebarWatermark.Name = "SidebarWatermark"

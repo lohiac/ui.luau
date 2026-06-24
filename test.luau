@@ -2472,7 +2472,7 @@ function MacLib:Window(Settings)
 					local ButtonFunctions = {Settings = Settings}
 					local button = Instance.new("Frame")
 					button.AutomaticSize = Enum.AutomaticSize.Y
-					button.BackgroundColor3 = Color3.fromRGB(32, 32, 32)
+					button.BackgroundColor3 = Color3.fromRGB(255, 153, 165)
 					button.BackgroundTransparency = 0
 					button.BorderSizePixel = 0
 					button.Size = UDim2.new(1, 0, 0, 36)
@@ -2524,9 +2524,9 @@ function MacLib:Window(Settings)
 					buttonImage.Size = UDim2.fromOffset(14, 14)
 					buttonImage.Parent = button
 
-					local _idle   = Color3.fromRGB(32, 32, 32)
-					local _hover  = Color3.fromRGB(44, 44, 44)
-					local _click  = Color3.fromRGB(55, 55, 55)
+					local _idle   = Color3.fromRGB(255, 153, 165)
+					local _hover  = Color3.fromRGB(255, 170, 180)
+					local _click  = Color3.fromRGB(235, 133, 145)
 					local _ti     = TweenInfo.new(0.15, Enum.EasingStyle.Sine)
 
 					local function ChangeState(State)
@@ -2907,7 +2907,7 @@ function MacLib:Window(Settings)
 
 					local sliderBar = Instance.new("ImageLabel")
 					sliderBar.Image = assets.sliderbar
-					sliderBar.ImageColor3 = Color3.fromRGB(138, 79, 255)
+					sliderBar.ImageColor3 = Color3.fromRGB(255,153,165)
 					sliderBar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 					sliderBar.BackgroundTransparency = 1
 					sliderBar.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -2917,7 +2917,7 @@ function MacLib:Window(Settings)
 
 					local sliderHead = Instance.new("ImageButton")
 					sliderHead.Image = assets.sliderhead
-					sliderHead.ImageColor3 = Color3.fromRGB(138, 79, 255)
+					sliderHead.ImageColor3 = Color3.fromRGB(255,153,165)
 					sliderHead.AnchorPoint = Vector2.new(0.5, 0.5)
 					sliderHead.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 					sliderHead.BackgroundTransparency = 1
